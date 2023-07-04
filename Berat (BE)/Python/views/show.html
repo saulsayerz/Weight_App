@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detail Berat Badan</title>
+</head>
+<body>
+    <h1>Detail Berat Badan</h1>
+    <table>
+        <tr>
+            <td>Tanggal</td>
+            <td>{{ weight.tanggal }}</td>
+        </tr>
+        <tr>
+            <td>Max</td>
+            <td>{{ weight.max_weight }}</td>
+        </tr>
+        <tr>
+            <td>Min</td>
+            <td>{{ weight.min_weight }}</td>
+        </tr>
+        <tr>
+            <td>Perbedaan</td>
+            <td>{{ weight.max_weight - weight.min_weight }}</td>
+        </tr>
+    </table>
+    <a href="/">Kembali ke Index</a>
+</body>
+</html>

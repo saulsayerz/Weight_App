@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Berat Badan</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            padding: 4px 8px;
+            text-decoration: none;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Berat Badan</h1>
+    <table>
+        <thead>
+            <tr>
+                <th class="text-center">Tanggal</th>
+                <th class="text-center">Max</th>
+                <th class="text-center">Min</th>
+                <th class="text-center">Perbedaan</th>
+                <th class="text-center">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(len) %}
+            <tr>
+                <td class="text-center">{{ weights[i].tanggal }}</td>
+                <td class="text-center">{{ weights[i].max_weight }}</td>
+                <td class="text-center">{{ weights[i].min_weight }}</td>
+                <td class="text-center">{{ diffs[i] }}</td>
+                <td class="text-center">
+                    <a style="margin-right: 15px;" href="/weight/{{ weights[i].tanggal }}">Detail</a>
+                    <a href="/weight/{{ weights[i].tanggal }}/edit">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td class="text-center">Rata-rata</td>
+                <td class="text-center">{{ avg_max }}</td>
+                <td class="text-center">{{ avg_min }}</td>
+                <td class="text-center">{{ avg_diff }}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/weight/create">Tambah Data</a>
+</body>
+</html>
