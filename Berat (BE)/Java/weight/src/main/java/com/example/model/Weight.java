@@ -1,61 +1,23 @@
 package com.example.model;
 
+import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "weight")
+@Table(name = "weights")
+@Data
 public class Weight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "tanggal")
+    @Column(name = "date")
     private Date date;
 
-    @Column(name = "berat_max")
+    @Column(name = "max_weight")
     private double maxWeight;
 
-    @Column(name = "berat_min")
+    @Column(name = "min_weight")
     private double minWeight;
-
-    // Getter for id
-    public Long getId() {
-        return id;
-    }
-
-    // Setter for id
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    // Getter for date
-    public Date getDate() {
-        return date;
-    }
-
-    // Setter for date
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    // Getter for maxWeight
-    public double getMaxWeight() {
-        return maxWeight;
-    }
-
-    // Setter for maxWeight
-    public void setMaxWeight(double maxWeight) {
-        this.maxWeight = maxWeight;
-    }
-
-    // Getter for minWeight
-    public double getMinWeight() {
-        return minWeight;
-    }
-
-    // Setter for minWeight
-    public void setMinWeight(double minWeight) {
-        this.minWeight = minWeight;
-    }
 }
