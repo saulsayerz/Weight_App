@@ -23,6 +23,11 @@
       border-radius: 4px;
       text-decoration: none;
     }
+
+    .center {
+      margin: 0 auto !important;
+    }
+
   </style>
 </head>
 <body>
@@ -37,12 +42,12 @@
     </tr>
     <% weights.forEach(weight => { %>
     <tr>
-      <td><a href="/weights/<%= weight.id %>"><%= weight.date %></a></td>
+      <td><a href="/<%= weight.id %>"><%= weight.date %></a></td>
       <td><%= weight.max_weight %></td>
       <td><%= weight.min_weight %></td>
       <td><%= weight.max_weight - weight.min_weight %></td>
       <td>
-        <a href="/weights/<%= weight._id %>edit" class="button">Edit</a>
+        <a href="/edit/<%= weight.id %>" class="button">Edit</a>
       </td>
     </tr>
     <% }); %>
@@ -53,5 +58,6 @@
       <td><%= average.averageMax - average.averageMin %></td>
     </tr>
   </table>
+  <a href="/create" class="button center">Create New</a>
 </body>
 </html>

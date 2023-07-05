@@ -16,7 +16,7 @@ app.use(
   })
 );
 
-app.use('/weights', weightRoutes);
+app.use('/', weightRoutes);
 
 app.listen(port, () => {
   console.log('Server started on port 3000');

@@ -11,6 +11,10 @@
       padding: 8px;
       text-align: left;
     }
+
+    .margin-top {
+        margin-top: 500px;
+    }
     </style>
 </head>
 <body>
@@ -24,10 +28,11 @@
     </tr>
     <tr>
       <td><%= weight.date %></td>
-      <td><%=weight.max %></td>
-      <td><%= weight.min %></td>
-      <td><%= weight.difference %></td>
+      <td><%= weight.max_weight %></td>
+      <td><%= weight.min_weight %></td>
+      <td><%= weight.max_weight - weight.min_weight %></td>
       </tr>
         </table>
+        <a class="margin-top" href="/">Kembali</a>
       </body>
       </html>

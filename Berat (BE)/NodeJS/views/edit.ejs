@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Weight</title>
+</head>
+<body>
+  <h1>Edit Weight</h1>
+  <form method="PUT" action="/<%= weight._id %>">
+    <label for="date">Tanggal</label>
+    <input type="date" id="date" name="date" value="<%= weight.date %>" required>
+
+    <label for="maxWeight">Max Weight</label>
+    <input type="number" id="maxWeight" name="maxWeight" value="<%= weight.max_weight %>" required>
+
+    <label for="minWeight">Min Weight</label>
+    <input type="number" id="minWeight" name="minWeight" value="<%= weight.min_weight %>" required>
+
+    <button type="submit">Update Weight</button>
+  </form>
+</body>
+</html>
