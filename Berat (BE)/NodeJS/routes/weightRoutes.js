@@ -4,8 +4,8 @@ const weightController = require('../controllers/weightController');
 const router = express.Router();
 
 router.get('/', weightController.getIndex);
-router.get('/weights/:id', weightController.getDetail);
-router.post('/weights', weightController.createWeight);
-router.put('/weights/:id', weightController.updateWeight);
+router.get('/:id', weightController.getDetail);
+router.post('/', weightController.createWeight);
+router.put('/:id', weightController.updateWeight);
 
 module.exports = router;

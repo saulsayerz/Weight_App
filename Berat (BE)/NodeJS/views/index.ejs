@@ -2,6 +2,28 @@
 <html>
 <head>
   <title>Weight Tracker</title>
+  <style>
+    table {
+      width: 100%;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <h1>Weight Tracker</h1>
@@ -11,6 +33,7 @@
       <th>Max</th>
       <th>Min</th>
       <th>Perbedaan</th>
+      <th>Aksi</th>
     </tr>
     <% weights.forEach(weight => { %>
     <tr>
@@ -18,6 +41,9 @@
       <td><%= weight.max_weight %></td>
       <td><%= weight.min_weight %></td>
       <td><%= weight.max_weight - weight.min_weight %></td>
+      <td>
+        <a href="/weights/<%= weight._id %>edit" class="button">Edit</a>
+      </td>
     </tr>
     <% }); %>
     <tr>

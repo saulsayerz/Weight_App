@@ -2,6 +2,16 @@
 <html>
 <head>
   <title>Weight Detail</title>
+  <style>
+    table {
+      width: 100%;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    </style>
 </head>
 <body>
   <h1>Weight Detail</h1>
@@ -14,4 +24,10 @@
     </tr>
     <tr>
       <td><%= weight.date %></td>
-      <td><%=
+      <td><%=weight.max %></td>
+      <td><%= weight.min %></td>
+      <td><%= weight.difference %></td>
+      </tr>
+        </table>
+      </body>
+      </html>
