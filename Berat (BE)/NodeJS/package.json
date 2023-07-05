@@ -1,0 +1,22 @@
+{
+  "name": "weight",
+  "version": "1.0.0",
+  "description": "weight tracker",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "SIRCLO-TECHNICAL-TEST-BE"
+  },
+  "author": "saulsayers",
+  "license": "ISC",
+  "devDependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.4.5"
+  }
+}
