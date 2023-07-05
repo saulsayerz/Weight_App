@@ -5,7 +5,7 @@
 </head>
 <body>
   <h1>Edit Weight</h1>
-  <form method="PUT" action="/<%= weight._id %>">
+  <form method="POST" action="/edit/<%= weight.id %>">
     <label for="date">Tanggal</label>
     <input type="date" id="date" name="date" value="<%= weight.date %>" required>
 
