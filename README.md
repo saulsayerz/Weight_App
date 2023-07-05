@@ -28,5 +28,7 @@ Project Status: **Done**
 ### Java
 In this program I use the Spring boot framework, so Backend and Frontend is separate. I tried to apply the Solid Principles and use as models (entity), service, controller, and repository.
 
+Using **MySQL or MariaDB** as database. Url source can be configured in the application properties file
+
 Project Status: **Not Done** As there is no Frontend side for the application, due to time reaching the deadline of the task is close. (Waktu habis untuk deadline).
 **I Recommend using the Python for the program** 
