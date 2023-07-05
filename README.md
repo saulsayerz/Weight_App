@@ -18,7 +18,6 @@ To run the program, You can cd to any of the language folder, and then run the r
 > Assuming Frontend is not graded so there will be minimum CSS.
 
 ### NodeJS
-Assuming the date is unique (primary key).
 
 In this program I use the MVC Architecture (model, view, controller).
 The techstack in this program is Express that set its engine to ejs files to render the views (fullstack framework). 
@@ -32,6 +31,8 @@ For automated testing, i use the sinon and mocha library. to run it use npm test
 Project Status: **Done**
 
 ### Python
+Assuming the date is unique (primary key).
+
 In this program I use the MVC Architecture (model, view, controller).
 The techstack in this program is Flask to render the views (fullstack framework). Therefore, no database is needed as the data is stored in a dictionary inside the flask program.
 
@@ -46,5 +47,8 @@ In this program I use the Spring boot framework, so Backend and Frontend is sepa
 
 Using **MySQL or MariaDB** as database. Url source can be configured in the application properties file
 
-Project Status: **Not Done** As there is no Frontend side for the application, due to time reaching the deadline of the task is close. (Waktu habis untuk deadline).
+To run the program, just use the run.bat (if you use maven). The REST API will be available in localhost port 8080.
+
+The frontend side and automated testing is **NOT DONE** in this language, as the deadline for the submission is close. (Kurang waktu untuk melanjutkan yang Java). So to run and test the program, it is recommended to use API Platforms such as POSTMAN.
+
 **I Recommend using the NodeJS for the program** 
