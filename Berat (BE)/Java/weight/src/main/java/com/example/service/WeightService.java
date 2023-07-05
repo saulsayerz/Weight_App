@@ -1,48 +1,71 @@
 package com.example.service;
 
+import java.sql.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.example.model.Weight;
 import com.example.repository.WeightRepository;
 
-import java.util.List;
+@Repository
+public class WeightService implements WeightRepository {
 
-@Service
-public class WeightService {
-    private final WeightRepository weightRepository;
+  @Autowired
+  private JdbcTemplate jdbcTemplate;
 
-    @Autowired
-    public WeightService(WeightRepository weightRepository) {
-        this.weightRepository = weightRepository;
+  @Override
+  public int save(Weight weight) {
+    return jdbcTemplate.update("INSERT INTO weights (date, max_weight, min_weight) VALUES(?,?,?)",
+        new Object[] { weight.getDate(), weight.getMaxWeight(), weight.getMinWeight() });
+  }
+
+  @Override
+  public int update(Weight weight) {
+    return jdbcTemplate.update("UPDATE weights SET date=?, max_weight=?, min_weight=? WHERE id=?",
+        new Object[] { weight.getDate(), weight.getMaxWeight(), weight.getMinWeight(), weight.getId() });
+  }
+
+  @Override
+  public Weight findById(int id) {
+    try {
+      Weight weight = jdbcTemplate.queryForObject("SELECT * FROM weights WHERE id=?",
+          BeanPropertyRowMapper.newInstance(Weight.class), id);
+
+      return weight;
+    } catch (IncorrectResultSizeDataAccessException e) {
+      return null;
     }
+  }
 
-    public List<Weight> getAllWeights() {
-        return weightRepository.findAllByOrderByDateDesc();
-    }
+  @Override
+  public int deleteById(int id) {
+    return jdbcTemplate.update("DELETE FROM weights WHERE id=?", id);
+  }
 
-    public Weight getWeightById(Long id) {
-        return weightRepository.findById(id).orElse(null);
-    }
+  @Override
+  public List<Weight> findAll() {
+    return jdbcTemplate.query("SELECT * from weights", BeanPropertyRowMapper.newInstance(Weight.class));
+  }
 
-    public Weight createWeight(Weight weight) {
-        return weightRepository.save(weight);
-    }
+  @Override
+  public List<Weight> findByDate(Date date) {
+    return jdbcTemplate.query("SELECT * from weights WHERE date=?",
+        BeanPropertyRowMapper.newInstance(Weight.class), date);
+  }
 
-    public Weight updateWeight(Long id, Weight weightDetails) {
-        Weight weight = weightRepository.findById(id).orElse(null);
-        if (weight != null) {
-            weight.setDate(weightDetails.getDate());
-            weight.setMaxWeight(weightDetails.getMaxWeight());
-            weight.setMinWeight(weightDetails.getMinWeight());
-            return weightRepository.save(weight);
-        }
-        return null;
-    }
+  @Override
+  public List<Weight> findByRange(int minWeight, int maxWeight) {
+    return jdbcTemplate.query("SELECT * from weights WHERE min_weight >= ? AND max_weight <= ?",
+        BeanPropertyRowMapper.newInstance(Weight.class), minWeight, maxWeight);
+  }
 
-    public void deleteWeight(Long id) {
-        weightRepository.deleteById(id);
-    }
+  @Override
+  public int deleteAll() {
+    return jdbcTemplate.update("DELETE from weights");
+  }
 }
-
-

@@ -1,23 +1,72 @@
 package com.example.model;
 
-import lombok.Data;
 import javax.persistence.*;
-import java.util.Date;
+
+import java.sql.Date;
 
 @Entity
 @Table(name = "weights")
-@Data
 public class Weight {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column(name = "date")
-    private Date date;
+  private int id;
+  private Date date;
+  @Column(name = "max_weight", nullable = false)
+  private int maxWeight;
+  @Column(name = "min_weight", nullable = false)
+  private int minWeight;
 
-    @Column(name = "max_weight")
-    private double maxWeight;
+  public Weight() {
 
-    @Column(name = "min_weight")
-    private double minWeight;
+  }
+
+  public Weight(int id, Date date, int maxWeight, int minWeight) {
+    this.id = id;
+    this.date = date;
+    this.maxWeight = maxWeight;
+    this.minWeight = minWeight;
+  }
+
+  public Weight(Date date, int maxWeight, int minWeight) {
+    this.date = date;
+    this.maxWeight = maxWeight;
+    this.minWeight = minWeight;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public Date getDate() {
+    return date;
+  }
+
+  public void setDate(Date date) {
+    this.date = date;
+  }
+
+  public int getMaxWeight() {
+    return maxWeight;
+  }
+
+  public void setMaxWeight(int maxWeight) {
+    this.maxWeight = maxWeight;
+  }
+
+  public int getMinWeight() {
+    return minWeight;
+  }
+
+  public void setMinWeight(int minWeight) {
+    this.minWeight = minWeight;
+  }
+
+  @Override
+  public String toString() {
+    return "Weight [id=" + id + ", date=" + date + ", maxWeight=" + maxWeight + ", minWeight=" + minWeight + "]";
+  }
 }
+

@@ -1,13 +1,24 @@
 package com.example.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import java.sql.Date;
+import java.util.List;
 
 import com.example.model.Weight;
 
-import java.util.List;
+public interface WeightRepository {
+  int save(Weight weight);
 
-@Repository
-public interface WeightRepository extends JpaRepository<Weight, Long> {
-    List<Weight> findAllByOrderByDateDesc();
+  int update(Weight weight);
+
+  Weight findById(int id);
+
+  int deleteById(int id);
+
+  List<Weight> findAll();
+
+  List<Weight> findByDate(Date date);
+
+  List<Weight> findByRange(int minWeight, int maxWeight);
+
+  int deleteAll();
 }
